@@ -17,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +31,10 @@ import com.lcomputerstudy.fileupload.vo.User;
 public class UploadController {
 	
 	@Autowired UserService userservice;
-	
+	 @GetMapping
+	    public String index(){
+	        return "/index.html";
+	    }
 	@RequestMapping("/uploadForm")
 	public String form() {
 		return "/upload";
