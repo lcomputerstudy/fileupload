@@ -16,6 +16,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.lcomputerstudy.fileupload.service.UserService;
 import com.lcomputerstudy.fileupload.vo.User;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 public class UploadController {
 	
@@ -37,7 +39,7 @@ public class UploadController {
 	// 업로드
 	@RequestMapping(value="/upload", method=RequestMethod.POST)
 	public String upload(@RequestParam("file") MultipartFile multipartFile) {
-		String path = "/Users/lcomputer/Documents/work/fileupload/src/main/resources/static/images/";
+		String path = "/Users/belle/Documents/workspace-spring-tool-suite-4-4.7.1.RELEASE/fileupload/src/main/resources/static/images/";
 		String thumbPath = path + "thumb/";
 		String filename = multipartFile.getOriginalFilename();
 		String ext = filename.substring(filename.lastIndexOf(".")+1);
